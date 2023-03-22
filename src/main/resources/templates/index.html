@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>BookHive</title>
+    <link rel="stylesheet" th:href="@{/index.css}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/d4ef4b641d.js" crossorigin="anonymous"></script>
+</head>
+<body class = "min-h-screen flex flex-col">
+<header class = "w-full bg-[#475260]">
+    <div class = "mx-auto max-w-6xl px-2 sm:px-6 lg:px-8 my-4">
+        <h1 href = "#" class = "text-2xl text-white font-bold select-none cursor-pointer">
+            BookHive
+        </h1>
+    </div>
+</header>
+<main class = "grow bg-[#F5F7F9]">
+    <div class = "mx-auto max-w-6xl px-2 sm:px-6 lg:px-8 h-full my-4">
+        <div class = "overflow-auto rounded-lg shadow my-4">
+            <div class = "bg-white flex flex-row justify-between items-center px-6 py-4 border-b-[2px] border-gray-200">
+                <div class = "flex flex-row justify-center items-center space-x-2 text-[#475260] select-none">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    <p class = "font-bold text-lg">
+                        List of Books
+                    </p>
+                </div>
+                <a th:href="@{/new}">
+                    <button class = "bg-[#475260] text-white px-6 py-3 rounded-lg select-none text-sm hover:bg-[#3D4856]">
+                        <i class="fa fa-plus" aria-hidden="true"></i> New Book
+                    </button>
+                </a>
+            </div>
+            <table class = "w-full">
+                <thead class = "bg-gray-50 border-b-[1px] border-gray-200">
+                    <tr class = "select-none">
+                        <th scope="col" class="px-6 py-4 text-sm font-semibold tracking-wide text-left">
+                            ID
+                        </th>
+                        <th scope="col" class="px-6 py-4 text-sm font-semibold tracking-wide text-left">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-4 text-sm font-semibold tracking-wide text-left">
+                            Author
+                        </th>
+                        <th scope="col" class="px-6 py-4 text-sm font-semibold tracking-wide text-left">
+                            Genre
+                        </th>
+                        <th scope="col" class="px-6 py-4 text-sm font-semibold tracking-wide text-left">
+                            Price (₱)
+                        </th>
+                        <th scope="col" class="px-6 py-4 text-sm font-semibold tracking-wide text-left">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="book : ${listBooks}" class = "bg-white border-b-[1px] border-gray-200">
+                        <td th:text="${book.id}" class = "px-6 py-8 text-sm text-gray-700 select-none whitespace-nowrap">
+                            #
+                        </td>
+                        <td th:text="${book.name}" class = "px-6 py-8 text-sm text-gray-700 whitespace-nowrap">
+                            Name
+                        </td>
+                        <td th:text="${book.author}" class = "px-6 py-8 text-sm text-gray-700 whitespace-nowrap">
+                            Author
+                        </td>
+                        <td th:text="${book.genre}" class = "px-6 py-8 text-sm text-gray-700 whitespace-nowrap">
+                            Genre
+                        </td>
+                        <td th:text="${book.price}" class = "px-6 py-8 text-sm text-gray-700 whitespace-nowrap">
+                            Price (₱)
+                        </td>
+                        <td class = "space-x-2 whitespace-nowrap px-6 select-none">
+                            <a th:href="@{'/update/' + ${book.id}}">
+                                <button class = "bg-[#F5F7F9] p-2 rounded-lg text-[#46515E] text-sm hover:bg-[#E3E4E8]">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </button>
+                            </a>
+                            <a th:href="@{'/delete/' + ${book.id}}">
+                                <button class = "bg-[#F5F7F9] p-2 rounded-lg text-[#46515E] text-sm hover:bg-[#E3E4E8]">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+</body>
+<footer class = "p-4 w-full bg-[#F6F6F6]">
+    <div class = "mx-auto max-w-6xl px-2 sm:px-6 lg:px-8 my-4">
+        <p class = "text-center select-none">
+            BookHive © 2023
+        </p>
+    </div>
+</footer>
+</html>

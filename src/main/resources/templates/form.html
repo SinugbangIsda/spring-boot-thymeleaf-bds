@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>BookHive</title>
+    <link rel = "stylesheet" th:href = "@{/index.css}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/d4ef4b641d.js" crossorigin="anonymous"></script>
+</head>
+<body class = "min-h-screen flex flex-col">
+<header class = "w-full bg-[#475260]">
+    <div class = "mx-auto max-w-6xl px-2 sm:px-6 lg:px-8 my-4">
+        <h1 th:href = "@{/}" class = "text-2xl text-white font-bold select-none cursor-pointer">
+            BookHive
+        </h1>
+    </div>
+</header>
+<main class = "grow bg-[#F5F7F9] select-none">
+    <div class = "mx-auto max-w-6xl px-2 sm:px-6 lg:px-8 h-full my-4">
+        <form th:action="${action}" method="post" th:object="${book}">
+            <div class = "w-full bg-white rounded-lg">
+                <div class = "px-6 py-4 border-b-[2px] border-gray-200">
+                    <div class = "flex flex-row justify-left items-center space-x-2 text-[#475260]">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <p th:text="${header}" class = "font-bold text-lg"></p>
+                    </div>
+                </div>
+                <div class = "px-6 py-4">
+                    <div class = "flex flex-col space-y-3 text-[#475260]">
+                        <div class = "space-y-2">
+                            <p class = "font-bold">
+                                Name
+                            </p>
+                            <input
+                                    th:field="*{name}"
+                                    type = "text"
+                                    placeholder = "Book Name"
+                                    class = "p-4 border-2 border-gray-200 rounded-lg w-full focus:border-gray-400 focus:outline-none"
+                                    maxlength = "25"
+                                    autocomplete = "off"
+                                    required
+
+                            />
+                        </div>
+                        <div class = "space-y-2">
+                            <p class = "font-bold">
+                                Author
+                            </p>
+                            <input
+                                    th:field = "*{author}"
+                                    type = "text"
+                                    placeholder = "Book Author"
+                                    class = "p-4 border-2 border-gray-200 rounded-lg w-full focus:border-gray-400 focus:outline-none"
+                                    maxlength = "15"
+                                    autocomplete = "off"
+                                    required
+                            />
+                        </div>
+                        <div class = "space-y-2">
+                            <p class = "font-bold">
+                                Genre
+                            </p>
+                            <input
+                                    th:field="*{genre}"
+                                    type = "text"
+                                    placeholder = "Book Genre"
+                                    class = "p-4 border-2 border-gray-200 rounded-lg w-full focus:border-gray-400 focus:outline-none"
+                                    maxlength = "25"
+                                    autocomplete = "off"
+                                    required
+                            />
+                        </div>
+                        <div class = "space-y-2">
+                            <p class = "font-bold">
+                                Price (₱)
+                            </p>
+                            <input
+                                    th:field="*{price}"
+                                    type = "number"
+                                    placeholder = "Book Price"
+                                    class = "p-4 border-2 border-gray-200 rounded-lg w-full focus:border-gray-400 focus:outline-none"
+                                    maxlength = "10"
+                                    min = "0"
+                                    autocomplete = "off"
+                                    required
+                            />
+                        </div>
+                        <div class = "flex flex-row justify-center items-center space-x-2 w-full">
+                            <button
+                                    type = "submit"
+                                    class = "bg-[#475260] text-white px-6 py-3 rounded-lg select-none text-sm hover:bg-[#3D4856]"
+                            >
+                                Submit
+                            </button>
+                            <button
+                                    type = "button"
+                                    class = "border-2 border-[#475260] text-[#475260] px-6 py-3 rounded-lg select-none text-sm hover:bg-[#F5F5F5]"
+                                    onclick = "cancelForm()"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+<footer class = "p-4 w-full bg-[#F6F6F6]">
+    <div class = "mx-auto max-w-6xl px-2 sm:px-6 lg:px-8 my-4">
+        <p class = "text-center select-none cursor-pointer">
+            BookHive © 2023
+        </p>
+    </div>
+</footer>
+<script type = "text/javascript">
+    const cancelForm = () => {
+        window.location = "[[@{/}]]"
+    }
+</script>
+</html>
