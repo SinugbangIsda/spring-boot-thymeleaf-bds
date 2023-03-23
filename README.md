@@ -11,7 +11,7 @@ This is a full-stack web application for storing and managing book information. 
 
 - [Spring Boot DevTools](https://www.geeksforgeeks.org/spring-boot-devtools/): Spring Boot DevTools is a set of tools that provides a better development experience when working with Spring Boot applications. It includes features such as automatic application restarts, live reloads of static resources, and improved error reporting.
 
-- [Tailwind CSS Play CDN](https://tailwindcss.com/docs/installation/play-cdn): Webjars for Bootstrap is a way to package the Bootstrap framework as a set of webjars, which are self-contained JAR files that contain web resources such as CSS, JavaScript, and images. It allows developers to easily add Bootstrap to their web applications without having to manually download and configure the framework.
+- [Tailwind CSS Play CDN](https://tailwindcss.com/docs/installation/play-cdn): Tailwind CSS Play CDN is a web-based playground for Tailwind CSS, a popular utility-first CSS framework. It allows users to experiment with the framework's features and generate CSS code on the fly without the need for a local development environment or build process. 
 
 # System Architecture
 ![0](./docs/system_architecture.png)
