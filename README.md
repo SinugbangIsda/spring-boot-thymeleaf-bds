@@ -1,5 +1,5 @@
-# BookHive - Book Inventory Management System
-This is a full-stack web application for managing the inventory of a bookstore. It uses the following technologies:
+# BookHive - Book Database System
+This is a full-stack web application for storing and managing book information. It uses the following technologies:
 
 - [Spring Web](https://docs.spring.io/spring-boot/docs/current/reference/html/web.html): Spring Web is a module of the Spring Framework that provides support for building web applications. It includes features such as HTTP request handling, session management, and web application configuration.
 
